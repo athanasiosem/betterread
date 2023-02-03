@@ -7,11 +7,17 @@
  
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "css": ["styles.css"]
+    "css": ["css/styles.css"]
   }],
  "permissions": ["activeTab", "contextMenus"],
- "icons": {
-  "16": "logo16.png",
-  "48": "logo48.png",
-  "128": "logo128.png"}
+ "action": { 
+    "default_icon": {
+      "16": "images/logo16.png",
+      "48": "images/logo48.png",
+      "128": "images/logo128.png"}
+  },
+  "icons": {
+    "16": "images/logo16.png",
+    "48": "images/logo48.png",
+    "128": "images/logo128.png"}
 }
