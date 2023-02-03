@@ -9,5 +9,4 @@
       "css": ["styles.css"],
       "matches": ["*://*/*"]
     }]
-   
-  }
+}
