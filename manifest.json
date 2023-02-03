@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+   
+    "name": "BetterRead",
+    "version": "0.0.1",
+    "description": "Changes the layout of the page for better reading experience.",
+   
+    "content_scripts": [{
+      "css": ["styles.css"],
+      "matches": ["*://*/*"]
+    }]
+   
+  }
