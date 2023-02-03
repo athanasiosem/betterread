@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
    
-    "name": "BetterRead",
+    "name": "betterread",
     "version": "0.0.1",
     "description": "Changes the layout of a website for better reading experience.",
    
