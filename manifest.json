@@ -8,5 +8,6 @@
     "content_scripts": [{
       "matches": ["<all_urls>"],
       "css": ["styles.css"]
-    }]
+    }],
+   "permissions": ["activeTab"]
 }
