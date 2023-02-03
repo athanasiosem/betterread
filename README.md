@@ -6,7 +6,7 @@
   </a>
 </h1>
 
-<h4 align="center">Chrome/Edge extension that changes the layout of a website for better reading experience.</h4>
+<h4 align="center">Simple Chrome/Edge extension that changes the layout of a website for better reading experience.</h4>
 
 <p align="center">
 <a href="https://github.com/athanasiosem/betterread/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-red.svg"></a>
@@ -21,6 +21,8 @@
 </p>
 
 # Features
+betterread is a simple Chrome/Edge extension that changes the layout of a website for better reading experience. The extension is useful when browsing 
+sites that have all their body layout left-aligned or have more than 80 characters long sentences. 
 
 # Installation
 
