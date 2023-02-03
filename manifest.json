@@ -6,7 +6,7 @@
     "description": "Siple Chrome/Edge extension that changes the layout of a website for better reading experience.",
    
     "content_scripts": [{
-      "css": ["styles.css"],
-      "matches": ["*://*/*"]
+      "matches": ["<all_urls>"],
+      "css": ["styles.css"]
     }]
 }
