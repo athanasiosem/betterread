@@ -27,7 +27,7 @@ sites that have all their body layout left-aligned or have more than 80 characte
 # Installation
 
 # Usage
-<img src="/athanasiosem/betterread/blob/main/images/screencapture.gif?raw=true" alt="screencapture.gif">
+<img src="https://github.com/athanasiosem/betterread/blob/main/images/screencapture.gif?raw=true" alt="screencapture.gif">
 
 <div align="center">
 Athanasios Emmanouilidis - 2023 - MIT License
