@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
   <a href="https://github.com/athanasiosem/betterread">
-  <img src="logo.png"/><br/>
+  <img src="logo128.png"/><br/>
   betterread
   </a>
 </h1>
