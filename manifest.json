@@ -1,23 +1,27 @@
 {
   "manifest_version": 3,
- 
   "name": "betterread",
   "version": "0.0.1",
   "description": "Simple Chrome/Edge extension that changes the layout of a website for better reading experience.",
- 
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "css": ["css/styles.css"]
-  }],
- "permissions": ["activeTab", "contextMenus"],
- "action": { 
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_title": "betterread",
     "default_icon": {
       "16": "images/logo16.png",
       "48": "images/logo48.png",
-      "128": "images/logo128.png"}
+      "128": "images/logo128.png"
+    }
   },
   "icons": {
     "16": "images/logo16.png",
     "48": "images/logo48.png",
-    "128": "images/logo128.png"}
+    "128": "images/logo128.png"
+  }
 }
