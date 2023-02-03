@@ -3,7 +3,7 @@
  
   "name": "betterread",
   "version": "0.0.1",
-  "description": "Siple Chrome/Edge extension that changes the layout of a website for better reading experience.",
+  "description": "Simple Chrome/Edge extension that changes the layout of a website for better reading experience.",
  
   "content_scripts": [{
     "matches": ["<all_urls>"],
