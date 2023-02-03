@@ -3,7 +3,7 @@
    
     "name": "BetterRead",
     "version": "0.0.1",
-    "description": "Changes the layout of the page for better reading experience.",
+    "description": "Changes the layout of a website for better reading experience.",
    
     "content_scripts": [{
       "css": ["styles.css"],
