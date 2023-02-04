@@ -11,6 +11,17 @@ chrome.action.onClicked.addListener(async (tab) => {
       chrome.storage.local.set({ state: 'off' });
 
       try {
+        await chrome.scripting.removeCSS({
+          target: {
+            tabId: tab.id,
+          },
+          files: ["css/styles.css"],
+        });
+      } catch (err) {
+        console.error(`failed to remove CSS: ${err}`);
+      }
+      
+      try {
         await chrome.scripting.insertCSS({
           target: {
             tabId: tab.id,

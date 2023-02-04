@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "betterread",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Simple Chrome/Edge extension that changes the layout of a website for better reading experience.",
   "permissions": [
     "activeTab",
