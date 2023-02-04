@@ -1,7 +1,11 @@
 html body {
-    width: 800px;
+    width: 700px;
     margin: auto;
     line-height: 1.5;
     font-size: 16px;
     padding: 5px;
+    background:white;
+    color:#212427;
+    text-align: left;
+    font-family: Lexend Deca,sans-serif;
 }
