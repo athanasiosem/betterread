@@ -21,7 +21,7 @@
 </p>
 
 # Features
-betterread is a simple Chrome/Edge extension that changes the css style of a website for better reading experience. The extension is useful when browsing 
+betterread is a simple Chrome/Edge extension that changes the CSS style of a website for better reading experience. The extension is useful when browsing 
 sites that have all their body layout left-aligned, have small fonts, have no or little line-height or more than 80 characters long sentences. 
 
 # Installation
