@@ -29,6 +29,8 @@ At this time, you can only install the extension from its source. First of all, 
 Click on the "Load unpacked" button and select the directory where you unzipped the extension. The betterread extension is now installed.
 
 # Usage
+To use the extension just click on the extension icon to toggle it on or off.
+
 ![screen_capture](https://github.com/athanasiosem/betterread/blob/main/images/screencap.gif?raw=true)
 
 <div align="center">
