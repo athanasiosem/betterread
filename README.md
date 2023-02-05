@@ -6,7 +6,7 @@
   </a>
 </h1>
 
-<h4 align="center">Simple Chrome/Edge extension that changes the css style of a website for better reading experience.</h4>
+<h4 align="center">Simple Chrome/Edge extension that changes the CSS style of a website for better reading experience.</h4>
 
 <p align="center">
 <a href="https://github.com/athanasiosem/betterread/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-red.svg"></a>
