@@ -40,5 +40,5 @@ To use the extension just click on the extension icon to toggle it on or off.
 ![screen_capture](https://github.com/athanasiosem/betterread/blob/main/images/screencap.gif?raw=true)
 
 <div align="center">
-Athanasios Emmanouilidis - 2023 - MIT License
+[Athanasios Emmanouilidis](https://emman.dev) - 2023 - MIT License
 </div>
