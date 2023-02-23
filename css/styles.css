@@ -1,11 +1,11 @@
 html body {
-    width: 700px;
+    max-width: 40rem;
     margin: auto;
     padding: 5px;
     background:white;
     color:#212427;
     text-align: left;
     line-height: 1.5;
-    font-family: sans-serif;
-    font-size: 16px;
+    font-family: segoe ui, sans-serif;
+    font-size: 13pt;
 }
