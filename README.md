@@ -39,6 +39,12 @@ To use the extension just click on the extension icon to toggle it on or off.
 
 ![screen_capture](https://github.com/athanasiosem/betterread/blob/main/images/screencap.gif?raw=true)
 
+# Tested websites
+Here is a list of websites the extension has been tested to work.
+
+- http://hackernews.org
+- https://man7.org/linux/man-pages
+
 <div align="center">
 Athanasios Emmanouilidis - 2023 - MIT License
 </div>
