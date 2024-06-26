@@ -46,5 +46,5 @@ Here is a list of websites the extension has been tested to work.
 - https://man7.org/linux/man-pages
 
 <div align="center">
-Athanasios Emmanouilidis - 2023 - MIT License
+Athanasios Emmanouilidis - MIT License
 </div>
