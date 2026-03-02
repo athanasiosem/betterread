@@ -63,7 +63,7 @@ async function reapplyIfOn(tabId, url) {
   const data = await chrome.storage.local.get('states');
   const states = data.states || {};
   if (states[hostname] === 'on') {
-    applyStyles(tabId, 'on', hostname);
+    await applyStyles(tabId, 'on', hostname);
   }
 }
 
