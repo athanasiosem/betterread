@@ -78,3 +78,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 chrome.webNavigation.onHistoryStateUpdated.addListener(({ tabId, url }) => {
   reapplyIfOn(tabId, url);
 });
+
+if (typeof module !== 'undefined') {
+  module.exports = { getCssFile, toggleExtension, applyStyles, reapplyIfOn };
+}
