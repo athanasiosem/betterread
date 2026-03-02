@@ -1,41 +1,48 @@
-// Toggle state and update the tab
-async function toggleExtension(tab) {
-  // 1. Get current state (default to 'off' if undefined)
-  const data = await chrome.storage.local.get('state');
-  const currentState = data.state || 'off';
-  const newState = currentState === 'on' ? 'off' : 'on';
+const SITE_RULES = {
+  'www.reddit.com': 'css/sites/reddit.css',
+  'reddit.com':     'css/sites/reddit.css',
+  'news.ycombinator.com':	'css/sites/ycombinator.css'
+};
 
-  // 2. Save the new state
-  await chrome.storage.local.set({ state: newState });
-
-  // 3. Apply changes
-  applyStyles(tab.id, newState);
+function getCssFile(hostname) {
+  return SITE_RULES[hostname] ?? 'css/styles.css';
 }
 
-// Function to handle the actual injection/removal
-async function applyStyles(tabId, state) {
+async function toggleExtension(tab) {
+  const hostname = new URL(tab.url).hostname;
+  const data = await chrome.storage.local.get('states');
+  const states = data.states || {};
+  const currentState = states[hostname] || 'off';
+  const newState = currentState === 'on' ? 'off' : 'on';
+
+  states[hostname] = newState;
+  await chrome.storage.local.set({ states });
+
+  applyStyles(tab.id, newState, hostname);
+}
+
+async function applyStyles(tabId, state, hostname) {
+  const cssFile = getCssFile(hostname);
+
   if (state === 'on') {
-    // Set badge to ON
     chrome.action.setBadgeText({ text: "ON", tabId: tabId });
     chrome.action.setBadgeBackgroundColor({ color: "#22C55E", tabId: tabId });
 
-    // Inject CSS (Using a file reference)
     try {
       await chrome.scripting.insertCSS({
         target: { tabId: tabId },
-        files: ["css/styles.css"]
+        files: [cssFile]
       });
     } catch (err) {
       console.error("Injection failed (likely a protected Chrome page):", err);
     }
   } else {
-    // Set badge to OFF (empty string hides it)
     chrome.action.setBadgeText({ text: "", tabId: tabId });
 
     try {
       await chrome.scripting.removeCSS({
         target: { tabId: tabId },
-        files: ["css/styles.css"]
+        files: [cssFile]
       });
     } catch (err) {
       console.warn("Could not remove CSS:", err);
@@ -43,17 +50,17 @@ async function applyStyles(tabId, state) {
   }
 }
 
-// Listener: When the icon is clicked
 chrome.action.onClicked.addListener((tab) => {
   toggleExtension(tab);
 });
 
-// Listener: Re-apply styles when a tab is refreshed
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab.url?.startsWith('http')) {
-    const data = await chrome.storage.local.get('state');
-    if (data.state === 'on') {
-      applyStyles(tabId, 'on');
+    const hostname = new URL(tab.url).hostname;
+    const data = await chrome.storage.local.get('states');
+    const states = data.states || {};
+    if (states[hostname] === 'on') {
+      applyStyles(tabId, 'on', hostname);
     }
   }
 });
