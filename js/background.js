@@ -15,12 +15,14 @@ async function toggleExtension(tab) {
   const currentState = states[hostname] || 'off';
   const newState = currentState === 'on' ? 'off' : 'on';
 
-  states[hostname] = newState;
-  await chrome.storage.local.set({ states });
-
-  applyStyles(tab.id, newState, hostname);
+  const applied = await applyStyles(tab.id, newState, hostname);
+  if (applied) {
+    states[hostname] = newState;
+    await chrome.storage.local.set({ states });
+  }
 }
 
+// Returns true if the operation succeeded, false if CSS injection failed.
 async function applyStyles(tabId, state, hostname) {
   const cssFile = getCssFile(hostname);
 
@@ -32,8 +34,10 @@ async function applyStyles(tabId, state, hostname) {
       });
       chrome.action.setBadgeText({ text: "ON", tabId: tabId });
       chrome.action.setBadgeBackgroundColor({ color: "#22C55E", tabId: tabId });
+      return true;
     } catch (err) {
       console.error("Injection failed (likely a protected Chrome page):", err);
+      return false;
     }
   } else {
     try {
@@ -45,6 +49,7 @@ async function applyStyles(tabId, state, hostname) {
       console.warn("Could not remove CSS:", err);
     }
     chrome.action.setBadgeText({ text: "", tabId: tabId });
+    return true;
   }
 }
 
