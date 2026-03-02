@@ -5,6 +5,8 @@ beforeEach(() => {
   chrome.storage.local.set.mockResolvedValue();
   chrome.scripting.insertCSS.mockResolvedValue();
   chrome.scripting.removeCSS.mockResolvedValue();
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+  jest.spyOn(console, 'warn').mockImplementation(() => {});
 });
 
 // ------------------------------------------------------------
@@ -81,6 +83,7 @@ describe('toggleExtension', () => {
     await toggleExtension({ id: 1, url: 'https://news.ycombinator.com/' });
 
     expect(chrome.storage.local.set).not.toHaveBeenCalled();
+    expect(console.error).toHaveBeenCalled();
   });
 });
 
@@ -109,6 +112,7 @@ describe('applyStyles', () => {
 
     expect(result).toBe(false);
     expect(chrome.action.setBadgeText).not.toHaveBeenCalled();
+    expect(console.error).toHaveBeenCalled();
   });
 
   test('uses fallback CSS for unknown hostname', async () => {
@@ -138,6 +142,7 @@ describe('applyStyles', () => {
 
     expect(result).toBe(true);
     expect(chrome.action.setBadgeText).toHaveBeenCalledWith({ text: '', tabId: 1 });
+    expect(console.warn).toHaveBeenCalled();
   });
 });
 
