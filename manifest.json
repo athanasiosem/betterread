@@ -10,6 +10,10 @@
     "tabs",
     "webNavigation"
   ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
   "background": {
     "service_worker": "js/background.js"
   },
