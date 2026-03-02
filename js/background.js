@@ -1,7 +1,5 @@
 const SITE_RULES = {
-  'www.reddit.com': 'css/sites/reddit.css',
-  'reddit.com':     'css/sites/reddit.css',
-  'news.ycombinator.com':	'css/sites/ycombinator.css'
+  'news.ycombinator.com': 'css/sites/ycombinator.css',
 };
 
 function getCssFile(hostname) {

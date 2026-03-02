@@ -36,7 +36,6 @@ For supported sites, betterread applies tailored CSS instead of the generic defa
 **Currently supported sites:**
 | Site | Notes |
 |---|---|
-| Reddit (`reddit.com`) | Custom styles for post and comment readability |
 | Hacker News (`news.ycombinator.com`) | Improved layout and font sizing |
 
 All other sites fall back to the generic CSS. Adding support for a new site requires only a new entry in `SITE_RULES` (in `js/background.js`) and a corresponding CSS file under `css/sites/`.
@@ -54,7 +53,6 @@ To use the extension just click on the extension icon to toggle it on or off.
 Here is a list of websites the extension has been tested to work.
 
 - https://news.ycombinator.com
-- https://www.reddit.com
 - https://man7.org/linux/man-pages
 
 <div align="center">
