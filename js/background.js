@@ -54,7 +54,7 @@ async function applyStyles(tabId, state, hostname) {
 }
 
 chrome.action.onClicked.addListener((tab) => {
-  toggleExtension(tab);
+  toggleExtension(tab).catch(err => console.error("Toggle failed:", err));
 });
 
 async function reapplyIfOn(tabId, url) {
