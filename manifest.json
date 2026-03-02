@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Simple Chrome/Edge extension that changes the layout of a website for better reading experience.",
   "permissions": [
-    "activeTab",
     "scripting",
     "storage",
     "tabs",
