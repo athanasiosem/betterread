@@ -54,13 +54,24 @@ chrome.action.onClicked.addListener((tab) => {
   toggleExtension(tab);
 });
 
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url?.startsWith('http')) {
-    const hostname = new URL(tab.url).hostname;
-    const data = await chrome.storage.local.get('states');
-    const states = data.states || {};
-    if (states[hostname] === 'on') {
-      applyStyles(tabId, 'on', hostname);
-    }
+async function reapplyIfOn(tabId, url) {
+  if (!url?.startsWith('http')) return;
+  const hostname = new URL(url).hostname;
+  const data = await chrome.storage.local.get('states');
+  const states = data.states || {};
+  if (states[hostname] === 'on') {
+    applyStyles(tabId, 'on', hostname);
   }
+}
+
+// Full page loads
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status === 'complete') {
+    reapplyIfOn(tabId, tab.url);
+  }
+});
+
+// SPA / pushState navigation (e.g. Reddit, Medium)
+chrome.webNavigation.onHistoryStateUpdated.addListener(({ tabId, url }) => {
+  reapplyIfOn(tabId, url);
 });
