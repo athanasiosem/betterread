@@ -1,12 +1,12 @@
 html body {
-    max-width: 40rem;
-    color: rgb(33, 36, 39);
-    text-align: left;
-    line-height: 1.5;
-    font-family: "segoe ui", sans-serif;
-    margin: auto;
-    padding: 25px;
+    font-family: "Segoe UI", sans-serif;
     background: white;
+    color: rgb(33, 36, 39);
+}
+
+#hnmain {
+    max-width: 40rem;
+    margin: auto;
 }
 
 html .title {
