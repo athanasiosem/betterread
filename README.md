@@ -28,7 +28,18 @@ The extension is useful when browsing sites that:
 - have no or little line-height 
 - have more than 80 characters long sentences. 
 
-### SPECIAL NOTE: The extension takes a general approach and is not site specific, therefore, it will not work on all websites. Where it shines are old webpages that are not designed for readability.
+### SPECIAL NOTE: The extension takes a general approach and is not always site specific, therefore, it will not work on all websites. Where it shines are old webpages that are not designed for readability.
+
+## Site-specific rules
+For supported sites, betterread applies tailored CSS instead of the generic defaults. The on/off state is remembered **per site** — toggling on Reddit does not affect Hacker News, and vice versa. State also persists across page navigations and browser restarts.
+
+**Currently supported sites:**
+| Site | Notes |
+|---|---|
+| Reddit (`reddit.com`) | Custom styles for post and comment readability |
+| Hacker News (`news.ycombinator.com`) | Improved layout and font sizing |
+
+All other sites fall back to the generic CSS. Adding support for a new site requires only a new entry in `SITE_RULES` (in `js/background.js`) and a corresponding CSS file under `css/sites/`.
 
 # Installation
 At this time, you can only install the extension from its source. First of all, [download the extension zip file](https://github.com/athanasiosem/betterread/archive/refs/tags/v1.0.0.zip). After you have downloaded the file, unzip it to a destination of your choice. Next, open the "Extensions" page (chrome://extensions/) in the browser and turn on the "Developer mode".
@@ -42,7 +53,8 @@ To use the extension just click on the extension icon to toggle it on or off.
 # Tested websites
 Here is a list of websites the extension has been tested to work.
 
-- http://hackernews.org
+- https://news.ycombinator.com
+- https://www.reddit.com
 - https://man7.org/linux/man-pages
 
 <div align="center">
