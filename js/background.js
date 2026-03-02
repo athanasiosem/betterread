@@ -1,5 +1,5 @@
 const SITE_RULES = {
-  'news.ycombinator.com': 'css/sites/ycombinator.css',
+  'news.ycombinator.com': 'css/sites/ycombinator.css'
 };
 
 function getCssFile(hostname) {
@@ -36,8 +36,6 @@ async function applyStyles(tabId, state, hostname) {
       console.error("Injection failed (likely a protected Chrome page):", err);
     }
   } else {
-    chrome.action.setBadgeText({ text: "", tabId: tabId });
-
     try {
       await chrome.scripting.removeCSS({
         target: { tabId: tabId },
@@ -46,6 +44,7 @@ async function applyStyles(tabId, state, hostname) {
     } catch (err) {
       console.warn("Could not remove CSS:", err);
     }
+    chrome.action.setBadgeText({ text: "", tabId: tabId });
   }
 }
 
