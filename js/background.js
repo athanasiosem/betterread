@@ -7,6 +7,8 @@ function getCssFile(hostname) {
 }
 
 async function toggleExtension(tab) {
+  if (!tab.url?.startsWith('http')) return;
+
   const hostname = new URL(tab.url).hostname;
   const data = await chrome.storage.local.get('states');
   const states = data.states || {};
@@ -23,14 +25,13 @@ async function applyStyles(tabId, state, hostname) {
   const cssFile = getCssFile(hostname);
 
   if (state === 'on') {
-    chrome.action.setBadgeText({ text: "ON", tabId: tabId });
-    chrome.action.setBadgeBackgroundColor({ color: "#22C55E", tabId: tabId });
-
     try {
       await chrome.scripting.insertCSS({
         target: { tabId: tabId },
         files: [cssFile]
       });
+      chrome.action.setBadgeText({ text: "ON", tabId: tabId });
+      chrome.action.setBadgeBackgroundColor({ color: "#22C55E", tabId: tabId });
     } catch (err) {
       console.error("Injection failed (likely a protected Chrome page):", err);
     }
