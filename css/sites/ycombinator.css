@@ -22,3 +22,9 @@ html .comment {
     font-size: 13px;
     line-height: 1.5;
 }
+
+html .subtext {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #828282;
+}
